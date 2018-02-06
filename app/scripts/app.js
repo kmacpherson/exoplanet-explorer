@@ -58,7 +58,10 @@ Instructions:
     /*
     Your code goes here! Uncomment the next line when you're ready to start!
      */
-
-    // getJSON('../data/earth-like-results.json')
+    getJSON('../data/earth-like-results.json').then(function(planets) {
+      planets.results.map(function(planet) {
+        getJSON(planet).then(createPlanetThumb);
+      });
+    });
   });
 })(document);
